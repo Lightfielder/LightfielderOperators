@@ -1,7 +1,7 @@
 # Lightfielder Operators v26.05
 
 > [!NOTE]
-> This repository is still acting as a placeholder. The latest Ops content is in the process of being individually validated and added to a public facing repo with GitHub visibility enabled.
+> This repository is still acting as a placeholder. The latest Ops content is in the process of being individually validated and added to the public facing repo with GitHub visibility enabled.
 
 ## Overview
 
