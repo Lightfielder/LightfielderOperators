@@ -26,7 +26,7 @@ The docked panel on the right side of the view makes it easy to view and edit sc
 
 Here is something to hopefully make you smile as an easter egg. This video shows how Lightfielder Ops extends the traditional node based compositing approach of "shaking" a node to disconnect the connection wirelines. This idea has been updated to year 2026 with the addition of physics to add lively noodle based real-time dynamics. You also get noodle based destruction (and wireline disconnections) based upon the location along the noodle where you double tap.
 
-[![Watch the video](https://img.youtube.com/vi/bdVYK9HOUjE/maxresdefault.jpg)](https://www.youtube.com/watch?v=gbdVYK9HOUjE)
+[![Watch the video](https://img.youtube.com/vi/bdVYK9HOUjE/maxresdefault.jpg)](https://www.youtube.com/watch?v=bdVYK9HOUjE)
 (Click to play the Youtube Video)
 
 ### Ops | Clip Sequencer
