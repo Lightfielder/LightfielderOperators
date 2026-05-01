@@ -11,6 +11,8 @@ The Ops development effort was bootstrapped using open-source LGPL licensed [Kar
 
 ## Ops Thin Client App
 
+### Ops | Nodes and Noodles
+
 This video shows a pre-alpha version of the Lightfielder Ops thin-client app running on iPadOS. This interface lets you quickly build automation friendly node graphs using the same ideas found in the existing "[Vonk Ultra](https://kartaverse.github.io/VonkUltra/)" data nodes toolset in [Kartaverse](https://kartaverse.github.io/).
 
 With the toolbar controls on the left side of the window, you can hide and show the timeline or the mini-map view, perform file operations, add nodes to the flow, or show the scripts panel.
@@ -18,6 +20,19 @@ With the toolbar controls on the left side of the window, you can hide and show 
 The docked panel on the right side of the view makes it easy to view and edit scripts / text formatted documents. The object model viewer works with formats like JSON, YAML, and XML. There is a Sheet interface to view table based data like CSV files or an IFL (image file list).
 
 [![Watch the video](https://img.youtube.com/vi/g-jWZtoyN_4/maxresdefault.jpg)](https://www.youtube.com/watch?v=g-jWZtoyN_4)
+(Click to play the Youtube Video)
+
+### Ops | Clip Sequencer
+
+Lightfielder is a primarily a multi-view workflow automation toolset that streamlines the creation of volumetric experiences. The clip sequencer interface makes short work of browsing through volumetric camera array media.
+
+It doesn't matter if you have 50 cameras, or 200+ cameras in the array, you can check what's up with your latest captures, and generate timecode aligned OpenTimelineIO EDLs on the spot.
+
+[![Watch the video](https://img.youtube.com/vi/QEbHW5oiN8E/maxresdefault.jpg)](https://www.youtube.com/watch?v=QEbHW5oiN8E)
+(Click to play the Youtube Video)
+
+A lite version of the sequencer works on iOS and VisionOS so you can work on the go from anywhere. You can optionally enable clip thumbnails, which are generated on the server side with Ops so you don't need to burn bandwidth on mobile devices just to confirm each volcap take has all the clips you expect.
+
 
 ## GitHub Downloads
 
