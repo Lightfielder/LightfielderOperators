@@ -24,6 +24,11 @@ The docked panel on the right side of the view makes it easy to view and edit sc
 [![Watch the video](https://img.youtube.com/vi/g-jWZtoyN_4/maxresdefault.jpg)](https://www.youtube.com/watch?v=g-jWZtoyN_4)
 (Click to play the Youtube Video)
 
+Here is something to hopefully make you smile as an easter egg. This video shows how Lightfielder Ops extends the traditional node based compositing approach of "shaking" a node to disconnect the connection wirelines. This idea has been updated to year 2026 with the addition of physics to add lively noodle based real-time dynamics. You also get noodle based destruction (and wireline disconnections) based upon the location along the noodle where you double tap.
+
+[![Watch the video](https://img.youtube.com/vi/bdVYK9HOUjE/maxresdefault.jpg)](https://www.youtube.com/watch?v=gbdVYK9HOUjE)
+(Click to play the Youtube Video)
+
 ### Ops | Clip Sequencer
 
 Lightfielder is a primarily a multi-view workflow automation toolset that streamlines the creation of volumetric experiences. The clip sequencer interface makes short work of browsing through volumetric camera array media.
@@ -36,7 +41,6 @@ Each take of the multi-view footage is grouped into "Stacks" which can be expand
 (Click to play the Youtube Video)
 
 A lite version of the sequencer works on iOS and VisionOS so you can work on the go from anywhere. You can optionally enable clip thumbnails, which are generated on the server side with Ops so you don't need to burn bandwidth on mobile devices just to confirm each volcap take has all the clips you expect.
-
 
 ## GitHub Downloads
 
