@@ -15,7 +15,7 @@ The Ops development effort was bootstrapped using open-source LGPL licensed [Kar
 
 ### Ops | Nodes and Noodles
 
-This video shows a pre-alpha version of the Lightfielder Ops thin-client app running on iPadOS. This interface lets you quickly build automation friendly node graphs using the same ideas found in the existing "[Vonk Ultra](https://kartaverse.github.io/VonkUltra/)" data nodes toolset in [Kartaverse](https://kartaverse.github.io/).
+This video shows a pre-alpha version of the Lightfielder Ops thin-client app running on iPadOS. This interface lets you quickly build [automation friendly node graphs](Ops/Docs/Nodes.md) using the same ideas found in the existing "[Vonk Ultra](https://kartaverse.github.io/VonkUltra/)" data nodes toolset in [Kartaverse](https://kartaverse.github.io/).
 
 With the toolbar controls on the left side of the window, you can hide and show the timeline or the mini-map view, perform file operations, add nodes to the flow, or show the scripts panel.
 
@@ -52,6 +52,7 @@ Go to the [Releases page](https://github.com/Lightfielder/LightfielderOperators/
 - [Install Python](Ops/Docs/Install_Python.md)
 - [Install Ops](Ops/Docs/Install.md)
 - [Uninstalling Ops](Ops/Docs/Uninstall.md)
+- [Nodes](Ops/Docs/Nodes.md)
 - [ChangeLog](Ops/Docs/ChangeLog.md)
 - [Presets](Ops/Docs/Presets.md)
 - [Unit Tests](Ops/Docs/Unit_Tests.md)
