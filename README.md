@@ -11,7 +11,7 @@ The Ops development effort was bootstrapped using open-source LGPL licensed [Kar
 
 ## GitHub Downloads
 
-Go to the [Releases page](https://github.com/Lightfielder/LightfielderOperators/releases/) to access the latest build. The v26.05 update adds initial support for Apple Vision Pro HMDs.
+Go to the [Releases page](https://github.com/Lightfielder/LightfielderOperators/releases/) to access the latest builds (when they are shipped publicly). The v26.05 update adds initial support for Apple Vision Pro HMDs.
 
 ## Table of Contents
 
