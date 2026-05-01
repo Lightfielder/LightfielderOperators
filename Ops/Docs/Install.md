@@ -51,7 +51,7 @@ The Paths settings in "Ops" lets the software know where the files are installed
 
 (Windows)  
 **From:** Ops:  
-**To**: C:\\Users\\Me\\ Ops\\  
+**To**: C:\\Users\\Me\\Ops\\  
 
 ### Ops Scripts Folders
 
