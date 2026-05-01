@@ -17,11 +17,9 @@ Go to the [Releases page](https://github.com/Lightfielder/LightfielderOperators/
 
 - [ReadMe (You are here)](README.md)
 - [Install Python](OPs/Docs/Install_Python.md)
-- [Install Ops](OPs/Docs/Install_ Ops.md)
+- [Install Ops](OPs/Docs/Install_Ops.md)
 - [Uninstalling Ops](OPs/Docs/Uninstall_OPs.md)
 - [ChangeLog](OPs/Docs/ChangeLog.md)
 - [Presets](OPs/Docs/Presets.md)
 - [Unit Tests](OPs/Docs/Unit_Tests.md)
-
-
 
