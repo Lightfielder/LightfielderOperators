@@ -19,7 +19,7 @@ This video shows a pre-alpha version of the Lightfielder Ops thin-client app run
 
 With the toolbar controls on the left side of the window, you can hide and show the timeline or the mini-map view, perform file operations, add nodes to the flow, or show the scripts panel.
 
-The docked panel on the right side of the view makes it easy to view and edit scripts / text formatted documents. The object model viewer works with formats like JSON, YAML, and XML. There is a Sheet interface to view table based data like CSV files or an IFL (image file list).
+The docked panel on the right side of the view makes it easy to view and edit scripts, text, markdown, html, or other document formats with syntax highlighting. The object model viewer works with formats like JSON, YAML, and XML. There is a Sheet interface to view table based data like CSV files or an IFL (image file list).
 
 [![Watch the video](https://img.youtube.com/vi/g-jWZtoyN_4/maxresdefault.jpg)](https://www.youtube.com/watch?v=g-jWZtoyN_4)
 (Click to play the Youtube Video)
