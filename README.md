@@ -53,6 +53,7 @@ Go to the [Releases page](https://github.com/Lightfielder/LightfielderOperators/
 - [Install Ops](Ops/Docs/Install.md)
 - [Uninstalling Ops](Ops/Docs/Uninstall.md)
 - [Nodes](Ops/Docs/Nodes.md)
+- [Sequencer](Ops/Docs/Sequencer.md)
 - [ChangeLog](Ops/Docs/ChangeLog.md)
 - [Presets](Ops/Docs/Presets.md)
 - [Unit Tests](Ops/Docs/Unit_Tests.md)
