@@ -1,4 +1,4 @@
-# Lightfielder Operators | Sequencer
+# Lightfielder Operators | Sequencer View
 
 Lightfielder is a primarily a multi-view workflow automation toolset that streamlines the creation of volumetric experiences. 
 

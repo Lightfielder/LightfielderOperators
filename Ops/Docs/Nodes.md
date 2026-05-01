@@ -1,4 +1,4 @@
-# Lightfielder Operators | Nodes
+# Lightfielder Operators | Nodes View
 
 Ops has a node graph that allows arbitary data processing to occur. This is handy for building automation workflows in a low-code fasion. The tooling is based upon the Kartaverse "Vonk Ultra" data node toolset.
 
