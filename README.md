@@ -7,6 +7,8 @@
 
 Ops is a [rust language](https://rust-lang.org/) based agentic interface to control and visualize distributed render tasks running on HPC systems. It is cross-platform compatible and works across Linux, Windows, and macOS. A Swift UI based iOS and VisionOS app acts as a thin client to interface with Ops when you are on the go.
 
+Ops is the secret-sauce that helps takes the pain out of data heavy workflows like volumetric video production. You can generate rapid onset previews of your volumetric assets as fully trained models, transcode media to meet delivery requirements, and automate away the drudgery of tasks you do regularly.
+
 The Ops development effort was bootstrapped using open-source LGPL licensed [Kartaverse](https://github.com/Kartaverse) technology.
 
 ## Ops Thin Client App
