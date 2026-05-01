@@ -1,10 +1,10 @@
-# Lightfielder Operators | Uninstalling OPs
+# Lightfielder Operators | Uninstalling Ops
 
-Listed below are the steps for removing OPs from your computer.
+Listed below are the steps for removing Ops from your computer.
 
 ### Remove the Ops Folder
 
-At this point we are ready to remove the OPs folder from your hard disk to complete the OPs toolset's uninstall process.
+At this point we are ready to remove the Ops folder from your hard disk to complete the Ops toolset's uninstall process.
 
 1. Quit all Lightfielder applications
 
