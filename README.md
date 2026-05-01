@@ -28,6 +28,8 @@ Lightfielder is a primarily a multi-view workflow automation toolset that stream
 
 It doesn't matter if you have 50 cameras, or 200+ cameras in the array, you can check what's up with your latest captures, and generate timecode aligned OpenTimelineIO EDLs on the spot.
 
+Each take of the multi-view footage is grouped into "Stacks" which can be expanded or collapsed on demand. You can swizzle your stacks between a horizontal or vertical layout to better use available screen space on a monitor. Each stack has several override controls you can toggle On/Off for sound, grades, reframing, and XYZ transforms.
+
 [![Watch the video](https://img.youtube.com/vi/QEbHW5oiN8E/maxresdefault.jpg)](https://www.youtube.com/watch?v=QEbHW5oiN8E)
 (Click to play the Youtube Video)
 
