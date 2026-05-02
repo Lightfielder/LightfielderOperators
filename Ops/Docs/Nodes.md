@@ -2,7 +2,7 @@
 
 Ops has a node graph that allows arbitary data processing to occur. This is handy for building automation workflows in a low-code fasion. The tooling is based upon the Kartaverse "Vonk Ultra" data node toolset.
 
-When the node graph is first loaded on the iOS/VisionOS based thin-client app it shows an empty flow. There is a light grey grid pattern that shows the alignment when nodes are snapped to the grid.
+When the node graph is first loaded on the iOS, VisionOS, or macOS Catalyst based thin-client app it shows an empty flow. There is a light grey grid pattern that shows the alignment when nodes are snapped to the grid.
 
 ## Gestures
 

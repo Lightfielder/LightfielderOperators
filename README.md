@@ -5,13 +5,47 @@
 
 ## Overview
 
-Ops is a [rust language](https://rust-lang.org/) based agentic interface to control and visualize distributed render tasks running on HPC systems. It is cross-platform compatible and works across Linux, Windows, and macOS. A Swift UI based iOS and VisionOS app acts as a thin client to interface with Ops when you are on the go.
+Ops is a [rust language](https://rust-lang.org/) based agentic interface to control and visualize distributed render tasks running on HPC systems. It is cross-platform compatible and works across Linux, Windows, and macOS. A Swift UI based iOS, VisionOS, and macOS Catalyst app acts as a thin client to interface with Ops when you are on the go.
 
 Ops is the secret-sauce that helps takes the pain out of data heavy workflows like volumetric video production. You can generate rapid onset previews of your volumetric assets as fully trained models, transcode media to meet delivery requirements, and automate away the drudgery of tasks you do regularly.
 
 The Ops development effort was bootstrapped using open-source LGPL licensed [Kartaverse](https://github.com/Kartaverse) technology.
 
+
+## Table of Contents
+
+- [ReadMe (You are here)](README.md)
+- [ChangeLog](Ops/Docs/ChangeLog.md)
+- Deployment
+  - [Install Python](Ops/Docs/Install_Python.md)
+  - [Install Ops](Ops/Docs/Install.md)
+  - [Uninstalling Ops](Ops/Docs/Uninstall.md)
+- Usage
+  - [Nodes View](Ops/Docs/Nodes.md)
+  - [Sequencer View](Ops/Docs/Sequencer.md)
+  - [Export Presets](Ops/Docs/Presets.md)
+  - [Unit Tests](Ops/Docs/Unit_Tests.md)
+
+## GitHub Downloads
+
+Go to the [Releases page](https://github.com/Lightfielder/LightfielderOperators/releases/) to access the latest builds (when they are shipped publicly). The v26.05 update adds initial support for Apple Vision Pro HMDs.
+
 ## Ops Thin Client App
+
+### Ops | Clip Sequencer
+
+Lightfielder is a primarily a multi-view workflow automation toolset that streamlines the creation of volumetric experiences. The clip sequencer interface makes short work of browsing through volumetric camera array media. The Sequencer app can run on iOS, VisionOS, and macOS Catalyst.
+
+ ![Catalyst macOS App](Ops/Docs/Images/Catalyst/lightfielder-macos-catalyst.png)
+
+It doesn't matter if you have 50 cameras, or 200+ cameras in the array, you can check what's up with your latest captures, and generate timecode aligned OpenTimelineIO EDLs on the spot.
+
+Each take of the multi-view footage is grouped into "Stacks" which can be expanded or collapsed on demand. You can swizzle your stacks between a horizontal or vertical layout to better use available screen space on a monitor. Each stack has several override controls you can toggle On/Off for sound, grades, reframing, and XYZ transforms.
+
+[![Watch the video](https://img.youtube.com/vi/QEbHW5oiN8E/maxresdefault.jpg)](https://www.youtube.com/watch?v=QEbHW5oiN8E)
+(Click to play the Youtube Video)
+
+A lite version of the sequencer works on iOS and VisionOS so you can work on the go from anywhere. You can optionally enable clip thumbnails, which are generated on the server side with Ops so you don't need to burn bandwidth on mobile devices just to confirm each volcap take has all the clips you expect.
 
 ### Ops | Nodes and Noodles
 
@@ -28,36 +62,3 @@ Here is something to hopefully make you smile as an easter egg. This video shows
 
 [![Watch the video](https://img.youtube.com/vi/bdVYK9HOUjE/maxresdefault.jpg)](https://www.youtube.com/watch?v=bdVYK9HOUjE)
 (Click to play the Youtube Video)
-
-### Ops | Clip Sequencer
-
-Lightfielder is a primarily a multi-view workflow automation toolset that streamlines the creation of volumetric experiences. The clip sequencer interface makes short work of browsing through volumetric camera array media.
-
-It doesn't matter if you have 50 cameras, or 200+ cameras in the array, you can check what's up with your latest captures, and generate timecode aligned OpenTimelineIO EDLs on the spot.
-
-Each take of the multi-view footage is grouped into "Stacks" which can be expanded or collapsed on demand. You can swizzle your stacks between a horizontal or vertical layout to better use available screen space on a monitor. Each stack has several override controls you can toggle On/Off for sound, grades, reframing, and XYZ transforms.
-
-[![Watch the video](https://img.youtube.com/vi/QEbHW5oiN8E/maxresdefault.jpg)](https://www.youtube.com/watch?v=QEbHW5oiN8E)
-(Click to play the Youtube Video)
-
-A lite version of the sequencer works on iOS and VisionOS so you can work on the go from anywhere. You can optionally enable clip thumbnails, which are generated on the server side with Ops so you don't need to burn bandwidth on mobile devices just to confirm each volcap take has all the clips you expect.
-
-## GitHub Downloads
-
-Go to the [Releases page](https://github.com/Lightfielder/LightfielderOperators/releases/) to access the latest builds (when they are shipped publicly). The v26.05 update adds initial support for Apple Vision Pro HMDs.
-
-## Table of Contents
-
-- [ReadMe (You are here)](README.md)
-- [ChangeLog](Ops/Docs/ChangeLog.md)
-- Deployment
-  - [Install Python](Ops/Docs/Install_Python.md)
-  - [Install Ops](Ops/Docs/Install.md)
-  - [Uninstalling Ops](Ops/Docs/Uninstall.md)
-- Usage
-  - [Nodes View](Ops/Docs/Nodes.md)
-  - [Sequencer View](Ops/Docs/Sequencer.md)
-  - [Export Presets](Ops/Docs/Presets.md)
-  - [Unit Tests](Ops/Docs/Unit_Tests.md)
- 
-  
