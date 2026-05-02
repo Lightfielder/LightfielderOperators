@@ -21,8 +21,8 @@ The Ops development effort was bootstrapped using open-source LGPL licensed [Kar
   - [Install Ops](Ops/Docs/Install.md)
   - [Uninstalling Ops](Ops/Docs/Uninstall.md)
 - Usage
-  - [Nodes View](Ops/Docs/Nodes.md)
   - [Sequencer View](Ops/Docs/Sequencer.md)
+  - [Nodes View](Ops/Docs/Nodes.md)
   - [Export Presets](Ops/Docs/Presets.md)
   - [Unit Tests](Ops/Docs/Unit_Tests.md)
 
