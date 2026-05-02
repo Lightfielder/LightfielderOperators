@@ -49,11 +49,15 @@ Go to the [Releases page](https://github.com/Lightfielder/LightfielderOperators/
 ## Table of Contents
 
 - [ReadMe (You are here)](README.md)
-- [Install Python](Ops/Docs/Install_Python.md)
-- [Install Ops](Ops/Docs/Install.md)
-- [Uninstalling Ops](Ops/Docs/Uninstall.md)
-- [Nodes View](Ops/Docs/Nodes.md)
-- [Sequencer View](Ops/Docs/Sequencer.md)
 - [ChangeLog](Ops/Docs/ChangeLog.md)
-- [Presets](Ops/Docs/Presets.md)
-- [Unit Tests](Ops/Docs/Unit_Tests.md)
+- Deployment
+  - [Install Python](Ops/Docs/Install_Python.md)
+  - [Install Ops](Ops/Docs/Install.md)
+  - [Uninstalling Ops](Ops/Docs/Uninstall.md)
+- Usage
+  - [Nodes View](Ops/Docs/Nodes.md)
+  - [Sequencer View](Ops/Docs/Sequencer.md)
+  - [Export Presets](Ops/Docs/Presets.md)
+  - [Unit Tests](Ops/Docs/Unit_Tests.md)
+ 
+  
