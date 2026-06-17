@@ -1,8 +1,5 @@
 # Lightfielder Operators v26.05
 
-> [!NOTE]
-> This repository is still acting as a placeholder. The latest Ops content is in the process of being individually validated and added to the public facing repo that has GitHub visibility enabled. The official launch is anticiapted to be about 90 days out.
-
 ## Overview
 
 Ops is a [rust language](https://rust-lang.org/) based agentic interface to control and visualize distributed render tasks running on HPC systems. It is cross-platform compatible and works across Linux, Windows, and macOS. A Swift UI based iOS, VisionOS, and macOS Catalyst app acts as a thin client to interface with Ops when you are on the go.
