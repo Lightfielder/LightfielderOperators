@@ -1,4 +1,6 @@
-# Lightfielder Operators v26.05
+# Lightfielder Operators v26.09
+
+# Private Beta 1
 
 ## Overview
 
@@ -6,8 +8,7 @@ Ops is a [rust language](https://rust-lang.org/) based agentic interface to cont
 
 Ops is the secret-sauce that helps takes the pain out of data heavy workflows like volumetric video production. You can generate rapid onset previews of your volumetric assets as fully trained models, transcode media to meet delivery requirements, and automate away the drudgery of tasks you do regularly.
 
-The Ops development effort was bootstrapped using open-source LGPL licensed [Kartaverse](https://github.com/Kartaverse) technology.
-
+The Ops development effort was bootstrapped using open-source LGPL licensed [Kartaverse](https://github.com/Kartaverse) technology. It is the continuation of the [Vonk Ultra](https://github.com/Kartaverse/VonkUltra) project and the “[Lightfielder for DaVinci Resolve](https://github.com/Lightfielder/Lightfielder-DaVinci-Resolve/tree/main)” pipeline tools.
 
 ## Table of Contents
 
@@ -18,6 +19,7 @@ The Ops development effort was bootstrapped using open-source LGPL licensed [Kar
   - [Install Ops](Ops/Docs/Install.md)
   - [Uninstalling Ops](Ops/Docs/Uninstall.md)
 - Usage
+  - [Lightfielder Viewport](Ops/Docs/Viewport.md)
   - [Sequencer View](Ops/Docs/Sequencer.md)
   - [Nodes View](Ops/Docs/Nodes.md)
   - [Export Presets](Ops/Docs/Presets.md)
@@ -25,9 +27,18 @@ The Ops development effort was bootstrapped using open-source LGPL licensed [Kar
 
 ## GitHub Downloads
 
-Go to the [Releases page](https://github.com/Lightfielder/LightfielderOperators/releases/) to access the latest builds (when they are shipped publicly). The v26.05 update adds initial support for Apple Vision Pro HMDs.
+Go to the [Releases page](https://github.com/Lightfielder/LightfielderOperators/releases/) to access the latest builds (when they are shipped publicly). The v26.09 update adds initial support for Apple Vision Pro HMDs.
 
 ## Ops Thin Client App
+
+## Ops | Lightfielder Viewport
+
+Lightfielder Viewport provides a digital content creation environment for authoring XR experiences. It streamlines volumetric video post-production with a highly specialized set of tools that are optimized and tuned for advanced HPC (High Performance Computing) workflows.
+
+[![Watch the video](https://img.youtube.com/vi/MQZb7zJXfXA/maxresdefault.jpg)](https://www.youtube.com/watch?v=MQZb7zJXfXA)
+(Click to play the Youtube Video)
+
+The viewport app is designed to interface directly with the “[Lightfielder for DaVinci Resolve](https://github.com/Lightfielder/Lightfielder-DaVinci-Resolve/tree/main)” pipeline tools.
 
 ### Ops | Clip Sequencer
 
