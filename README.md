@@ -31,6 +31,8 @@ Go to the [Releases page](https://github.com/Lightfielder/LightfielderOperators/
 
 ## Ops Thin Client App
 
+The Ops thin client lets you take your full workflow into the field, without loosing a single beat. Unchain your volumetric pipeline from the studio/lab.
+
 ## Ops | Lightfielder Viewport
 
 Lightfielder Viewport provides a digital content creation environment for authoring XR experiences. It streamlines volumetric video post-production with a highly specialized set of tools that are optimized and tuned for advanced HPC (High Performance Computing) workflows.
