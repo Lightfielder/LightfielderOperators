@@ -59,6 +59,9 @@ Each take of the multi-view footage is grouped into "Stacks" which can be expand
 
 A lite version of the sequencer works on iOS and VisionOS so you can work on the go from anywhere. You can optionally enable clip thumbnails, which are generated on the server side with Ops so you don't need to burn bandwidth on mobile devices just to confirm each volcap take has all the clips you expect.
 
+[![Watch the video](https://img.youtube.com/vi/ZI690QXXtb0/maxresdefault.jpg)](https://www.youtube.com/watch?v=ZI690QXXtb0)
+(Click to play the Youtube Video)
+
 ### Ops | Nodes and Noodles
 
 This video shows a pre-alpha version of the Lightfielder Ops thin-client app running on iPadOS. This interface lets you quickly build [automation friendly node graphs](Ops/Docs/Nodes.md) using the same ideas found in the existing "[Vonk Ultra](https://kartaverse.github.io/VonkUltra/)" data nodes toolset in [Kartaverse](https://kartaverse.github.io/).
