@@ -19,7 +19,7 @@ The Ops development effort was bootstrapped using open-source LGPL licensed [Kar
   - [Install Ops](Ops/Docs/Install.md)
   - [Uninstalling Ops](Ops/Docs/Uninstall.md)
 - Usage
-  - [Lightfielder Viewport](Ops/Docs/Viewport.md)
+  - Lightfielder Viewport
   - [Sequencer View](Ops/Docs/Sequencer.md)
   - [Nodes View](Ops/Docs/Nodes.md)
   - [Export Presets](Ops/Docs/Presets.md)
@@ -27,7 +27,9 @@ The Ops development effort was bootstrapped using open-source LGPL licensed [Kar
 
 ## GitHub Downloads
 
-Go to the [Releases page](https://github.com/Lightfielder/LightfielderOperators/releases/) to access the latest builds (when they are shipped publicly). The v26.09 update adds initial support for Apple Vision Pro HMDs.
+Private beta builds of Ops is available to dev-team members, and volumetric media projects that are Ops collaborators.
+
+When the private beta period is over, you can go to the [Releases page](https://github.com/Lightfielder/LightfielderOperators/releases/) to access the latest builds (when they are shipped publicly). The v26.05 update in May added initial support for Apple Vision Pro HMDs.
 
 ## Ops Thin Client App
 
