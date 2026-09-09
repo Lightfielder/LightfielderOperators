@@ -8,7 +8,7 @@ Ops is a [rust language](https://rust-lang.org/) based agentic interface to cont
 
 Ops is the secret-sauce that helps takes the pain out of data heavy workflows like volumetric video production. You can generate rapid onset previews of your volumetric assets as fully trained models, transcode media to meet delivery requirements, and automate away the drudgery of tasks you do regularly.
 
-The Ops development effort was bootstrapped using open-source LGPL licensed [Kartaverse](https://github.com/Kartaverse) technology. It is the continuation of the [Vonk Ultra](https://github.com/Kartaverse/VonkUltra) project and the “[Lightfielder for DaVinci Resolve](https://github.com/Lightfielder/Lightfielder-DaVinci-Resolve/tree/main)” pipeline tools.
+The Ops development effort was bootstrapped using open-source LGPL licensed [Kartaverse](https://github.com/Kartaverse) technology. It is the “standalone app” based continuation of the [Vonk Ultra](https://github.com/Kartaverse/VonkUltra) data nodes project. Ops was built specifically to interface with the LGPL licensed “[Lightfielder for DaVinci Resolve](https://github.com/Lightfielder/Lightfielder-DaVinci-Resolve/tree/main)” pipeline tools.
 
 ## Table of Contents
 
