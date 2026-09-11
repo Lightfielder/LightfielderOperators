@@ -1,5 +1,7 @@
 # Lightfielder Operators v26.09
 
+Created by: [Andrew Hazelden](mailto:andrew@andrewhazelden.com)
+
 # Private Beta 1
 
 ## Overview
