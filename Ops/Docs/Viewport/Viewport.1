@@ -1,0 +1,952 @@
+.TH VIEWPORT 1 "2026-10-01" "1.0" "User Commands"
+.SH NAME
+Viewport \- XR content creation environment
+.SH SYNOPSIS
+.B Viewport
+[\fB\-h\fR]
+[\fB\-v\fR]
+[\fB\-i\fR \fIlang\fR]
+[\fB\-nogui\fR]
+[\fB\-mcp\fR]
+[\fB\-f\fR]
+[\fB\-s\fR \fIfile\fR]
+[\fB\-silent\fR]
+[\fB\-api\fR [\fIname\fR|\fB\-\-tui\fR]]
+[\fB\-man\fR]
+[\fB\-install\-man\fR]
+Lightfielder is a hybrid computer-vision IDE/DCC toolset that unifies 
+volumetric content creation from a single workspace.
+.SH OPTIONS
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Show help message and exit.
+.TP
+\fB\-v\fR
+Print version number and exit.
+.TP
+\fB\-i\fR \fIpython\fR|\fIlua\fR
+Start an interactive REPL session in the given language. Supports multi-line
+editing with arrow keys, command history (up/down arrows), inline syntax
+highlighting, and the \fB==\fR shorthand for dumping Lua values. Enter
+\fBlf.help()\fR to explore the scripting API from within the REPL.
+.TP
+\fB\-nogui\fR
+Run headless with no windows or menu bar.
+.TP
+\fB\-mcp\fR
+Run as an MCP (Model Context Protocol) server over stdio with no GUI.
+Designed for AI coding assistants and render farm controllers.
+.TP
+\fB\-f\fR, \fB\-fullscreen\fR
+Open the main window in native fullscreen.
+.TP
+\fB\-s\fR, \fB\-script\fR \fIpath\fR
+Run a Lua or Python script file at the given path.
+.TP
+\fB\-silent\fR
+Suppress all CLI output. Useful for render farm and automated workflows.
+.TP
+\fB\-api\fR [\fIname\fR]
+List the entire scripting API with function descriptions, or show detailed help
+for a specific function when \fIname\fR is provided.
+.TP
+\fB\-api\fR \fB\-\-tui\fR
+Launch an interactive terminal help browser for the scripting API with
+function and category listings, search, and detailed per-function help.
+.PP
+In GUI mode, palette windows can be toggled via function keys:
+\fBF5\fR (History Stack), \fBF6\fR (Outliner), \fBF7\fR (Attributes),
+\fBF8\fR (Script Console with REPL and Help Browser).
+Additional viewport controls: \fBTab\fR opens the Create Dialog
+(see CREATE DIALOG), \fBG\fR cycles grid modes, \fB`\fR (backtick)
+toggles camera mode, and \fB/\fR toggles the HUD (see DISPLAY).
+.TP
+\fB\-man\fR
+Open this man page using the bundled copy inside the app.
+.TP
+\fB\-install\-man\fR
+Install the man page to \(ti/man/man1/Viewport.1 so future \fBman Viewport\fR
+calls work system-wide.
+.SH CREATE DIALOG
+.PP
+Pressing \fBTab\fR in the viewport opens a searchable Create Dialog
+overlay for adding objects. Items are grouped by category:
+.TP
+\fBObjects\fR
+Camera, Locator, Group, Reference, Note, Audio
+.TP
+\fBPrimitives\fR
+Cube, Cone, Sphere, Cylinder, Pyramid, Torus
+.TP
+\fBLights\fR
+Ambient, Area, Directional, Dome, Point, Spot, Sphere, Tube
+.PP
+Type to filter by name with autocomplete (gray suffix preview).
+\fBUp\fR/\fBDown\fR arrows navigate, \fBEnter\fR confirms, \fBEscape\fR
+dismisses.
+.SH SCRIPTING API
+Viewport embeds both Lua 5.4 and CPython 3.11 runtimes.
+The full scripting API is exposed under the \fBlf\fR namespace.
+Use \fB\-api\fR to list all functions, \fB\-api\fR \fB\-\-tui\fR for the
+interactive browser, or \fBlf.help()\fR from a script or the REPL.
+.PP
+.SS Conventions
+.PP
+Lua functions return \fBtrue\fR on success or \fBnil, err\fR on failure.
+Data-returning functions return a JSON string, or \fBnil, err\fR on failure.
+.br
+Python functions return \fBNone\fR on success and raise \fBRuntimeError\fR
+on failure. Data-returning functions return native Python objects (list/dict).
+.br
+MCP uses JSON-RPC 2.0 over TCP (port 9876) or stdio (\fB\-mcp\fR).
+The \fBmcp_server.py\fR wrapper (in Extras/) exposes all tools via the MCP
+protocol with JSON Schema typed parameters.
+.br
+Primitive and light type names are lowercase in all three interfaces.
+Display toggles accept boolean values.
+.SS Scene / File
+.TP
+\fBnew_scene\fR
+Create a new empty scene, clearing the current state.
+.br
+Lua:     \fBlf.new_scene()\fR
+.br
+Python:  \fBlf.new_scene()\fR
+.br
+MCP:     \fB{"method":"new_scene","params":[],"id":1}\fR
+.TP
+\fBopen_scene\fR \fIpath\fR
+Open a .jsonc scene file by path.
+.br
+Lua:     \fBlf.open_scene("/path/to/file")\fR
+.br
+Python:  \fBlf.open_scene("/path/to/file")\fR
+.br
+MCP:     \fB{"method":"open_scene","params":["/path/to/file"],"id":1}\fR
+.TP
+\fBsave_scene\fR
+Save the current scene to its existing file path.
+.br
+Lua:     \fBlf.save_scene()\fR
+.br
+Python:  \fBlf.save_scene()\fR
+.br
+MCP:     \fB{"method":"save_scene","params":[],"id":1}\fR
+.TP
+\fBsave_scene_as\fR \fIpath\fR
+Save the current scene to a new file path.
+.br
+Lua:     \fBlf.save_scene_as("/path/to/file")\fR
+.br
+Python:  \fBlf.save_scene_as("/path/to/file")\fR
+.br
+MCP:     \fB{"method":"save_scene_as","params":["/path/to/file"],"id":1}\fR
+.TP
+\fBrevert_scene\fR
+Reload the scene from its file on disk, discarding unsaved changes.
+.br
+Lua:     \fBlf.revert_scene()\fR
+.br
+Python:  \fBlf.revert_scene()\fR
+.br
+MCP:     \fB{"method":"revert_scene","params":[],"id":1}\fR
+.TP
+\fBimport_file\fR \fIpath\fR
+Import a file as a reference on the currently selected object.
+.br
+Lua:     \fBlf.import_file("/path/to/file")\fR
+.br
+Python:  \fBlf.import_file("/path/to/file")\fR
+.br
+MCP:     \fB{"method":"import_file","params":["/path/to/file"],"id":1}\fR
+.TP
+\fBnew_tab\fR
+Open a new empty scene in a new OS window tab.
+.br
+Lua:     \fBlf.new_tab()\fR
+.br
+Python:  \fBlf.new_tab()\fR
+.br
+MCP:     \fB{"method":"new_tab","params":[],"id":1}\fR
+.TP
+\fBclose_tab\fR
+Close the current frontmost document window.
+.br
+Lua:     \fBlf.close_tab()\fR
+.br
+Python:  \fBlf.close_tab()\fR
+.br
+MCP:     \fB{"method":"close_tab","params":[],"id":1}\fR
+.SS Create Objects
+.TP
+\fBcreate_camera\fR
+Create a new camera object in the scene.
+.br
+Lua:     \fBlf.create_camera()\fR
+.br
+Python:  \fBlf.create_camera()\fR
+.br
+MCP:     \fB{"method":"create_camera","params":[],"id":1}\fR
+.TP
+\fBcreate_locator\fR
+Create a new locator (null/pivot object) in the scene.
+.br
+Lua:     \fBlf.create_locator()\fR
+.br
+Python:  \fBlf.create_locator()\fR
+.br
+MCP:     \fB{"method":"create_locator","params":[],"id":1}\fR
+.TP
+\fBcreate_group\fR
+Create a new empty group for organizing objects.
+.br
+Lua:     \fBlf.create_group()\fR
+.br
+Python:  \fBlf.create_group()\fR
+.br
+MCP:     \fB{"method":"create_group","params":[],"id":1}\fR
+.TP
+\fBcreate_reference\fR
+Create a reference container for external file references.
+.br
+Lua:     \fBlf.create_reference()\fR
+.br
+Python:  \fBlf.create_reference()\fR
+.br
+MCP:     \fB{"method":"create_reference","params":[],"id":1}\fR
+.TP
+\fBcreate_audio\fR
+Create a new audio source container.
+.br
+Lua:     \fBlf.create_audio()\fR
+.br
+Python:  \fBlf.create_audio()\fR
+.br
+MCP:     \fB{"method":"create_audio","params":[],"id":1}\fR
+.TP
+\fBcreate_note\fR
+Create a new note/annotation object.
+.br
+Lua:     \fBlf.create_note()\fR
+.br
+Python:  \fBlf.create_note()\fR
+.br
+MCP:     \fB{"method":"create_note","params":[],"id":1}\fR
+.TP
+\fBcreate_primitive\fR \fItype\fR
+Create a mesh primitive. Valid types: cube, cone, sphere, cylinder, pyramid, torus.
+.br
+Lua:     \fBlf.create_primitive("cube")\fR
+.br
+Python:  \fBlf.create_primitive("cube")\fR
+.br
+MCP:     \fB{"method":"create_primitive","params":["cube"],"id":1}\fR
+.TP
+\fBcreate_light\fR \fItype\fR
+Create a light. Valid types: ambient, area, directional, dome, point, spot, sphere, tube.
+.br
+Lua:     \fBlf.create_light("directional")\fR
+.br
+Python:  \fBlf.create_light("directional")\fR
+.br
+MCP:     \fB{"method":"create_light","params":["directional"],"id":1}\fR
+.SS Selection
+.TP
+\fBselect_all\fR
+Select all objects in the scene.
+.br
+Lua:     \fBlf.select_all()\fR
+.br
+Python:  \fBlf.select_all()\fR
+.br
+MCP:     \fB{"method":"select_all","params":[],"id":1}\fR
+.TP
+\fBdeselect_all\fR
+Clear the current selection.
+.br
+Lua:     \fBlf.deselect_all()\fR
+.br
+Python:  \fBlf.deselect_all()\fR
+.br
+MCP:     \fB{"method":"deselect_all","params":[],"id":1}\fR
+.TP
+\fBselect_by_name\fR \fIname\fR
+Select objects whose name matches or contains the given string.
+.br
+Lua:     \fBlf.select_by_name("value")\fR
+.br
+Python:  \fBlf.select_by_name("value")\fR
+.br
+MCP:     \fB{"method":"select_by_name","params":["value"],"id":1}\fR
+.TP
+\fBselect_by_id\fR \fIid\fR
+Select a single object by its unique identifier.
+.br
+Lua:     \fBlf.select_by_id("obj_1")\fR
+.br
+Python:  \fBlf.select_by_id("obj_1")\fR
+.br
+MCP:     \fB{"method":"select_by_id","params":["obj_1"],"id":1}\fR
+.TP
+\fBget_selected\fR
+Return a JSON array (Lua) or list of dicts (Python) of selected objects with
+id, name, position, rotation, scale, and type.
+.br
+Lua:     \fBlf.get_selected()\fR
+.br
+Python:  \fBlf.get_selected()\fR
+.br
+MCP:     \fB{"method":"get_selected","params":[],"id":1}\fR
+.SS Edit / Undo
+.TP
+\fBundo\fR
+Undo the last action.
+.br
+Lua:     \fBlf.undo()\fR
+.br
+Python:  \fBlf.undo()\fR
+.br
+MCP:     \fB{"method":"undo","params":[],"id":1}\fR
+.TP
+\fBredo\fR
+Redo the last undone action.
+.br
+Lua:     \fBlf.redo()\fR
+.br
+Python:  \fBlf.redo()\fR
+.br
+MCP:     \fB{"method":"redo","params":[],"id":1}\fR
+.TP
+\fBcut\fR
+Cut the selected objects to the clipboard.
+.br
+Lua:     \fBlf.cut()\fR
+.br
+Python:  \fBlf.cut()\fR
+.br
+MCP:     \fB{"method":"cut","params":[],"id":1}\fR
+.TP
+\fBcopy\fR
+Copy the selected objects to the clipboard.
+.br
+Lua:     \fBlf.copy()\fR
+.br
+Python:  \fBlf.copy()\fR
+.br
+MCP:     \fB{"method":"copy","params":[],"id":1}\fR
+.TP
+\fBpaste\fR
+Paste objects from the clipboard into the scene.
+.br
+Lua:     \fBlf.paste()\fR
+.br
+Python:  \fBlf.paste()\fR
+.br
+MCP:     \fB{"method":"paste","params":[],"id":1}\fR
+.TP
+\fBdelete_selected\fR
+Delete all currently selected objects from the scene.
+.br
+Lua:     \fBlf.delete_selected()\fR
+.br
+Python:  \fBlf.delete_selected()\fR
+.br
+MCP:     \fB{"method":"delete_selected","params":[],"id":1}\fR
+.TP
+\fBduplicate_selected\fR
+Duplicate the currently selected objects.
+.br
+Lua:     \fBlf.duplicate_selected()\fR
+.br
+Python:  \fBlf.duplicate_selected()\fR
+.br
+MCP:     \fB{"method":"duplicate_selected","params":[],"id":1}\fR
+.TP
+\fBgroup_selected\fR
+Group the selected objects into a new group.
+.br
+Lua:     \fBlf.group_selected()\fR
+.br
+Python:  \fBlf.group_selected()\fR
+.br
+MCP:     \fB{"method":"group_selected","params":[],"id":1}\fR
+.TP
+\fBungroup_selected\fR
+Ungroup the selected group, releasing its children.
+.br
+Lua:     \fBlf.ungroup_selected()\fR
+.br
+Python:  \fBlf.ungroup_selected()\fR
+.br
+MCP:     \fB{"method":"ungroup_selected","params":[],"id":1}\fR
+.TP
+\fBclear_undo\fR
+Clear the entire undo history.
+.br
+Lua:     \fBlf.clear_undo()\fR
+.br
+Python:  \fBlf.clear_undo()\fR
+.br
+MCP:     \fB{"method":"clear_undo","params":[],"id":1}\fR
+.TP
+\fBsave_undo\fR \fIpath\fR
+Serialize undo events to a JSON file at the given path.
+.br
+Lua:     \fBlf.save_undo("/path/to/file")\fR
+.br
+Python:  \fBlf.save_undo("/path/to/file")\fR
+.br
+MCP:     \fB{"method":"save_undo","params":["/path/to/file"],"id":1}\fR
+.TP
+\fBload_undo\fR \fIpath\fR
+Load undo events from a previously saved JSON file.
+.br
+Lua:     \fBlf.load_undo("/path/to/file")\fR
+.br
+Python:  \fBlf.load_undo("/path/to/file")\fR
+.br
+MCP:     \fB{"method":"load_undo","params":["/path/to/file"],"id":1}\fR
+.SS Transform
+.TP
+\fBset_transform\fR \fIid position rotation scale\fR
+Set the position, rotation, and scale of an object by its ID.
+.br
+Lua:     \fBlf.set_transform("obj_1", 0, 0, 0, 0, 0, 0, 1, 1, 1)\fR
+.br
+Python:  \fBlf.set_transform("obj_1", [0,0,0], [0,0,0], [1,1,1])\fR
+.br
+MCP:     \fB{"method":"set_transform","params":["obj_1",[0,0,0],[0,0,0],[1,1,1]],"id":1}\fR
+.TP
+\fBget_transform\fR \fIid\fR
+Return JSON with id, name, position, rotation, scale, and pivot for an object.
+.br
+Lua:     \fBlf.get_transform("obj_1")\fR
+.br
+Python:  \fBlf.get_transform("obj_1")\fR
+.br
+MCP:     \fB{"method":"get_transform","params":["obj_1"],"id":1}\fR
+.TP
+\fBset_parent\fR \fIchild_id parent_id\fR
+Set the parent of a child object. Pass empty string for parent to detach.
+.br
+Lua:     \fBlf.set_parent("obj_1", "parent_id")\fR
+.br
+Python:  \fBlf.set_parent("obj_1", "parent_id")\fR
+.br
+MCP:     \fB{"method":"set_parent","params":["obj_1","parent_id"],"id":1}\fR
+.TP
+\fBrename_object\fR \fIid name\fR
+Rename an object by its ID.
+.br
+Lua:     \fBlf.rename_object("obj_1", "value")\fR
+.br
+Python:  \fBlf.rename_object("obj_1", "value")\fR
+.br
+MCP:     \fB{"method":"rename_object","params":["obj_1","value"],"id":1}\fR
+.SS Viewport / Camera
+.TP
+\fBframe_all\fR
+Frame all objects in the viewport by adjusting the camera.
+.br
+Lua:     \fBlf.frame_all()\fR
+.br
+Python:  \fBlf.frame_all()\fR
+.br
+MCP:     \fB{"method":"frame_all","params":[],"id":1}\fR
+.TP
+\fBgo_home\fR
+Reset the camera to its home/default position.
+.br
+Lua:     \fBlf.go_home()\fR
+.br
+Python:  \fBlf.go_home()\fR
+.br
+MCP:     \fB{"method":"go_home","params":[],"id":1}\fR
+.TP
+\fBset_camera_mode\fR \fImode\fR
+Switch camera navigation mode. Valid modes: orbit, fps.
+.br
+Lua:     \fBlf.set_camera_mode("orbit")\fR
+.br
+Python:  \fBlf.set_camera_mode("orbit")\fR
+.br
+MCP:     \fB{"method":"set_camera_mode","params":["orbit"],"id":1}\fR
+.TP
+\fBset_shading\fR \fImode\fR
+Set the viewport shading mode. Valid modes: shaded, boundingBox, points, wireframe, none.
+.br
+Lua:     \fBlf.set_shading("shaded")\fR
+.br
+Python:  \fBlf.set_shading("shaded")\fR
+.br
+MCP:     \fB{"method":"set_shading","params":["shaded"],"id":1}\fR
+.TP
+\fBset_interaction\fR \fImode\fR
+Set the viewport interaction mode. Valid modes: selection, transform.
+.br
+Lua:     \fBlf.set_interaction("selection")\fR
+.br
+Python:  \fBlf.set_interaction("selection")\fR
+.br
+MCP:     \fB{"method":"set_interaction","params":["selection"],"id":1}\fR
+.SS Display Toggles
+.PP
+All display toggle functions accept a single boolean parameter:
+\fBon\fR: \fBtrue\fR to show, \fBfalse\fR to hide.
+.TP
+\fBshow_grid\fR
+Toggle grid visibility.
+.TP
+\fBshow_vertices\fR
+Toggle vertex point display.
+.TP
+\fBshow_normals\fR
+Toggle normal vector display.
+.TP
+\fBshow_edges\fR
+Toggle wireframe edge overlay.
+.TP
+\fBshow_xray\fR
+Toggle X-Ray transparency mode.
+.TP
+\fBshow_hud\fR
+Toggle all HUD overlay elements.
+.TP
+\fBshow_fps\fR
+Toggle the FPS counter in the HUD.
+.TP
+\fBshow_details\fR
+Toggle detail/navigation info in the HUD.
+.TP
+\fBshow_distance\fR
+Toggle distance measurement display.
+.TP
+\fBshow_render\fR
+Toggle render style indicator display.
+.TP
+\fBshow_selected\fR
+Toggle selection info display in the HUD.
+.TP
+\fBshow_camera_view\fR
+Toggle camera view name display.
+.TP
+\fBshow_fov\fR
+Toggle camera FOV display in the HUD.
+.TP
+\fBshow_polygons\fR
+Toggle polygon count display.
+.TP
+\fBshow_camera_locators\fR
+Toggle camera icon visibility in the viewport.
+.TP
+\fBshow_light_locators\fR
+Toggle light icon visibility in the viewport.
+.TP
+\fBshow_locator_icons\fR
+Toggle all locator icon visibility.
+.TP
+\fBshow_skybox\fR
+Toggle skybox rendering.
+.PP
+Example usage:
+.br
+Lua:     \fBlf.show_grid(true)\fR
+.br
+Python:  \fBlf.show_grid(True)\fR
+.br
+MCP:     \fB{"method":"show_grid","params":[true],"id":1}\fR
+.SS Windows / Panels
+.TP
+\fBopen_outliner\fR
+Open or focus the Outliner panel window.
+.br
+Lua:     \fBlf.open_outliner()\fR
+.br
+Python:  \fBlf.open_outliner()\fR
+.br
+MCP:     \fB{"method":"open_outliner","params":[],"id":1}\fR
+.TP
+\fBopen_attributes\fR
+Open or focus the Attributes panel window.
+.br
+Lua:     \fBlf.open_attributes()\fR
+.br
+Python:  \fBlf.open_attributes()\fR
+.br
+MCP:     \fB{"method":"open_attributes","params":[],"id":1}\fR
+.TP
+\fBopen_history_stack\fR
+Open or focus the History Stack panel window.
+.br
+Lua:     \fBlf.open_history_stack()\fR
+.br
+Python:  \fBlf.open_history_stack()\fR
+.br
+MCP:     \fB{"method":"open_history_stack","params":[],"id":1}\fR
+.TP
+\fBclose_outliner\fR
+Close the Outliner panel if open.
+.br
+Lua:     \fBlf.close_outliner()\fR
+.br
+Python:  \fBlf.close_outliner()\fR
+.br
+MCP:     \fB{"method":"close_outliner","params":[],"id":1}\fR
+.TP
+\fBclose_attributes\fR
+Close the Attributes panel if open.
+.br
+Lua:     \fBlf.close_attributes()\fR
+.br
+Python:  \fBlf.close_attributes()\fR
+.br
+MCP:     \fB{"method":"close_attributes","params":[],"id":1}\fR
+.TP
+\fBclose_history_stack\fR
+Close the History Stack panel if open.
+.br
+Lua:     \fBlf.close_history_stack()\fR
+.br
+Python:  \fBlf.close_history_stack()\fR
+.br
+MCP:     \fB{"method":"close_history_stack","params":[],"id":1}\fR
+.TP
+\fBopen_script_console\fR
+Open or focus the Script Console panel window.
+.br
+Lua:     \fBlf.open_script_console()\fR
+.br
+Python:  \fBlf.open_script_console()\fR
+.br
+MCP:     \fB{"method":"open_script_console","params":[],"id":1}\fR
+.TP
+\fBclose_script_console\fR
+Close the Script Console panel if open.
+.br
+Lua:     \fBlf.close_script_console()\fR
+.br
+Python:  \fBlf.close_script_console()\fR
+.br
+MCP:     \fB{"method":"close_script_console","params":[],"id":1}\fR
+.SS Layouts
+.TP
+\fBsave_layout\fR \fIname\fR
+Save the current window layout under the given name.
+.br
+Lua:     \fBlf.save_layout("value")\fR
+.br
+Python:  \fBlf.save_layout("value")\fR
+.br
+MCP:     \fB{"method":"save_layout","params":["value"],"id":1}\fR
+.TP
+\fBload_layout\fR \fIname\fR
+Load a previously saved window layout by name.
+.br
+Lua:     \fBlf.load_layout("value")\fR
+.br
+Python:  \fBlf.load_layout("value")\fR
+.br
+MCP:     \fB{"method":"load_layout","params":["value"],"id":1}\fR
+.TP
+\fBlist_layouts\fR
+Return a JSON array (Lua) or list of strings (Python) of saved window layout names.
+.br
+Lua:     \fBlf.list_layouts()\fR
+.br
+Python:  \fBlf.list_layouts()\fR
+.br
+MCP:     \fB{"method":"list_layouts","params":[],"id":1}\fR
+.SS Scripts / Examples
+.TP
+\fBrun_script\fR \fIpath\fR
+Run a Lua or Python script file by path.
+.br
+Lua:     \fBlf.run_script("/path/to/file")\fR
+.br
+Python:  \fBlf.run_script("/path/to/file")\fR
+.br
+MCP:     \fB{"method":"run_script","params":["/path/to/file"],"id":1}\fR
+.TP
+\fBlist_scripts\fR
+Return a JSON array (Lua) or list of strings (Python) of available script filenames.
+.br
+Lua:     \fBlf.list_scripts()\fR
+.br
+Python:  \fBlf.list_scripts()\fR
+.br
+MCP:     \fB{"method":"list_scripts","params":[],"id":1}\fR
+.TP
+\fBopen_scripts_folder\fR
+Open the scripts folder in Finder.
+.br
+Lua:     \fBlf.open_scripts_folder()\fR
+.br
+Python:  \fBlf.open_scripts_folder()\fR
+.br
+MCP:     \fB{"method":"open_scripts_folder","params":[],"id":1}\fR
+.TP
+\fBopen_example\fR \fIname\fR
+Open a named example scene file.
+.br
+Lua:     \fBlf.open_example("value")\fR
+.br
+Python:  \fBlf.open_example("value")\fR
+.br
+MCP:     \fB{"method":"open_example","params":["value"],"id":1}\fR
+.TP
+\fBlist_examples\fR
+Return a JSON array (Lua) or list of strings (Python) of available example names.
+.br
+Lua:     \fBlf.list_examples()\fR
+.br
+Python:  \fBlf.list_examples()\fR
+.br
+MCP:     \fB{"method":"list_examples","params":[],"id":1}\fR
+.TP
+\fBopen_examples_folder\fR
+Open the examples folder in Finder.
+.br
+Lua:     \fBlf.open_examples_folder()\fR
+.br
+Python:  \fBlf.open_examples_folder()\fR
+.br
+MCP:     \fB{"method":"open_examples_folder","params":[],"id":1}\fR
+.SS App
+.TP
+\fBshow_about\fR
+Show the About Viewport window with version and description.
+.br
+Lua:     \fBlf.show_about()\fR
+.br
+Python:  \fBlf.show_about()\fR
+.br
+MCP:     \fB{"method":"show_about","params":[],"id":1}\fR
+.TP
+\fBquit\fR
+Exit the Viewport application gracefully.
+.br
+Lua:     \fBlf.quit()\fR
+.br
+Python:  \fBlf.quit()\fR
+.br
+MCP:     \fB{"method":"quit","params":[],"id":1}\fR
+.TP
+\fBshare\fR
+Show the macOS Share sheet for the current scene file.
+.br
+Lua:     \fBlf.share()\fR
+.br
+Python:  \fBlf.share()\fR
+.br
+MCP:     \fB{"method":"share","params":[],"id":1}\fR
+.TP
+\fBrestart\fR
+Restart the Viewport application after a 4-second delay.
+.br
+Lua:     \fBlf.restart()\fR
+.br
+Python:  \fBlf.restart()\fR
+.br
+MCP:     \fB{"method":"restart","params":[],"id":1}\fR
+.SS Complete Workflow Example (Lua)
+.PP
+.nf
+\fBlf.new_scene()
+lf.create_light("directional")
+lf.create_primitive("cube")
+lf.create_primitive("sphere")
+lf.create_camera()
+lf.select_by_name("Cube")
+local info = lf.get_selected()
+print("Selected: " .. info)
+lf.set_transform("obj_3", 2, 0, 0, 0, 0, 0, 1, 1, 1)
+lf.rename_object("obj_3", "MyCube")
+lf.deselect_all()
+lf.select_by_name("MyCube")
+lf.duplicate_selected()
+lf.frame_all()
+lf.set_shading("wireframe")
+lf.show_grid(false)
+lf.open_outliner()
+lf.open_attributes()
+lf.save_scene_as("/Users/me/example_scene.jsonc")\fR
+.fi
+.SS Complete Workflow Example (Python)
+.PP
+.nf
+\fBimport lf
+
+lf.new_scene()
+lf.create_light("directional")
+lf.create_primitive("cube")
+lf.create_primitive("sphere")
+lf.create_camera()
+lf.select_by_name("Cube")
+info = lf.get_selected()
+print("Selected:", info)
+lf.set_transform("obj_3", [2, 0, 0], [0, 0, 0], [1, 1, 1])
+lf.rename_object("obj_3", "MyCube")
+lf.deselect_all()
+lf.select_by_name("MyCube")
+lf.duplicate_selected()
+lf.frame_all()
+lf.set_shading("wireframe")
+lf.show_grid(False)
+lf.open_outliner()
+lf.open_attributes()
+lf.save_scene_as("/Users/me/example_scene.jsonc")\fR
+.fi
+.SS Complete Workflow Example (MCP)
+.PP
+.nf
+\fBTool: new_scene
+Tool: create_light
+  type="directional"
+Tool: create_primitive
+  type="cube"
+Tool: create_primitive
+  type="sphere"
+Tool: create_camera
+Tool: select_by_name
+  name="Cube"
+Tool: get_selected
+Tool: set_transform
+  id="obj_3"
+  position=[2,0,0]
+  rotation=[0,0,0]
+  scale=[1,1,1]
+Tool: rename_object
+  id="obj_3"
+  name="MyCube"
+Tool: deselect_all
+Tool: select_by_name
+  name="MyCube"
+Tool: duplicate_selected
+Tool: frame_all
+Tool: set_shading
+  mode="wireframe"
+Tool: show_grid
+  on=false
+Tool: open_outliner
+Tool: open_attributes
+Tool: save_scene_as
+  path="/Users/me/example_scene.jsonc"\fR
+.fi
+.SH INTERACTIVE REPL
+.PP
+When launched with \fB\-i lua\fR or \fB\-i python\fR, Viewport presents an
+interactive REPL with the following features:
+.TP
+\fBUp / Down arrows\fR
+Cycle through the command history. Previously entered lines can be recalled,
+edited, and re-executed to fix syntax errors on the fly.
+.TP
+\fBLeft / Right arrows\fR
+Move the text insertion cursor for inline editing. Home (Ctrl+A) and End
+(Ctrl+E) jump to the line start and end.
+.TP
+\fBSyntax highlighting\fR
+Lua and Python tokens are colorized in real time as you type: keywords
+and literals (nil, true, false) in purple, strings in green, numbers in
+gold, and function names in blue.
+.TP
+\fB\fB==\fR dump shortcut (Lua only)\fR
+Prefix an expression with \fB==\fR to pretty-print it via the built-in
+\fBdump()\fR function, e.g. \fB== lf\fR displays the full API table with
+indentation and color.
+.TP
+\fBlf.help()\fR
+Print detailed help for every scripting API function from within the REPL.
+.TP
+\fB$lua\fR and \fB$python\fR
+Switch between the Lua and Python interpreters mid-session without
+restarting. The prompt updates to reflect the current language.
+.TP
+\fBexit()\fR
+End the REPL session.
+.PP
+The Lua REPL uses crash-safe evaluation (SIGSEGV/SIGBUS protection) so
+that bugs in C extension code or the \fBdump()\fR pretty-printer produce
+a recoverable error message instead of a hard crash.
+.SH MCP SERVER
+Viewport runs a JSON-RPC 2.0 server for MCP integration:
+.TP
+TCP mode (default):
+Listens on port 9876 (configurable via \fBVIEWPORT_MCP_PORT\fR env var or
+\fBMCPPort\fR UserDefaults). Used by the Python bridge in
+\fBExtras/mcp_server.py\fR.
+.TP
+Stdio mode (\fB\-mcp\fR):
+Communicates over stdin/stdout for direct integration with AI coding
+assistants (Claude Desktop, opencode, etc.).
+.PP
+MCP clients discover tools via \fBtools/list\fR, which returns names,
+descriptions, and JSON Schema input parameters. \fBtools/call\fR invokes a
+tool by name with structured arguments. Available tools cover scene
+management, object creation (audio, notes, groups, references), editing
+(undo/redo, clipboard, duplicate, group/ungroup), transforms, viewport
+controls, display toggles (grid, skybox, HUD, X-ray, etc.), window
+panels, layouts, and app commands (about, quit, restart, share).
+.PP
+The \fBmcp_server.py\fR script (in Extras/) acts as a bridge: it connects
+to the Viewport app's internal TCP JSON-RPC server and exposes every tool
+via the MCP stdio protocol. If the \fBmcp\fR Python package is not
+installed, it falls back to an interactive TCP test mode.
+.SH DISPLAY
+.PP
+The viewport HUD overlays can be toggled together with \fB/\fR.
+Individual elements (FPS, navigation details, distance, render style,
+camera view, FOV, selection, polygon count) are toggleable from the
+\fBView\fR menu and via scripting.
+.PP
+\fBG\fR cycles grid modes: Off \(-> Square Grid \(-> Disc Grid \(-> Off.
+\fBSkybox\fR rendering is toggleable from the \fBView\fR menu or
+\fBlf.show_skybox(Bool)\fR.
+.SH WINDOW LAYOUTS
+.PP
+Window positions are persisted on quit, move, and resize. Pre-built layouts
+(Compact, Default, Ultrawide, Laptop, etc.) appear under the \fBWindow\fR
+menu; the first nine are bound to \fBCmd+1\fR through \fBCmd+9\fR.
+Custom layouts can be saved via
+\fBWindow > Save Window Layout\fR or \fBlf.save_layout(name)\fR
+and loaded via \fBlf.load_layout(name)\fR.
+.SH FILES
+.TP
+\fI*.jsonc\fR
+Scene files in JSON with comments format.
+.TP
+\fI\(ti/Library/Application Support/com.Lightfielder.Viewport/\fR
+Application support folder containing scripts, modules, and layouts.
+.TP
+\fI./Layouts/\fR
+Saved window layout files (JSONC format).
+.SH EXAMPLES
+.TP
+Launch interactively in Lua:
+Viewport \-i lua
+.TP
+Launch interactively in Python:
+Viewport \-i python
+.TP
+Run a script and quit:
+Viewport \-nogui \-s /path/to/script.py
+.TP
+Start MCP server for AI tools:
+Viewport \-mcp
+.TP
+Explore the scripting API:
+Viewport \-api
+.TP
+View help for a specific function:
+Viewport \-api set_transform
+.TP
+Interactive API browser:
+Viewport \-api \-\-tui
+.SH SEE ALSO
+.BR opencode (1),
+.BR python (1),
+.BR lua (1)
+.PP
+Full documentation: \fIViewport/Docs/LuaScriptingAPI.md\fR,
+\fIViewport/Docs/PythonScriptingAPI.md\fR,
+\fIViewport/Docs/MCPScriptingAPI.md\fR
