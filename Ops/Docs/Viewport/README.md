@@ -38,20 +38,15 @@ There is a full undo/redo "history stack" system in the application that acts li
 
 ![History Stack](Images/historystack.png)
 
-## Table of Contents
+## Viewport App Table of Contents
 
 - [ReadMe (You are here)](README.md)
 - [ChangeLog](ChangeLog.md)
 - [Hotkeys](Hotkeys.md)
 - [User Interface](UserInterface.md)
+- Compiling
+	- [Swift Language](Compiling-Swift.md)
+	- [Rust Language](Compiling-Rust.md)
 - Tutorials
 	- TBD
-- Compiling
-	- [Swift Language](Swift.md)
-	- [Rust Language](Rust.md)
 
-## GitHub Downloads
-
-Go to the Releases page to access the latest builds. 
-
-The v26.06 update in May added initial support for Sony Playstation DualSense gamepad input devices.
