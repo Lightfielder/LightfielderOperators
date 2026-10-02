@@ -2,13 +2,13 @@
 
 ## Overview
 
-Tired of juggling multiple 3D tools? Lightfielder is a hybrid computer-vision IDE/DCC toolset that unifies volumetric content creation from a single workspace.The goal is to make it easier to mix LiDAR scans of large environments, spatial audio, gaussian splats, video photogrammetry, etc into one purpose-built XR authoring environment. 
+Tired of juggling multiple 3D tools? Lightfielder is a hybrid computer-vision IDE/DCC toolset that unifies volumetric content creation from a single workspace. The goal is to make it easier to mix LiDAR scans of large environments, spatial audio, gaussian splats, video photogrammetry, etc into one purpose-built XR authoring environment. 
 
 ![Viewport APP User Interface](Images/viewport-interface.png)
 
 Lightfielder Viewport provides a digital content creation environment for authoring XR experiences. It streamlines volumetric video post-production with a highly specialized set of tools that are optimized and tuned for advanced HPC (High Performance Computing) workflows.
 
-This Lightfielder toolset feels like a mix of the most relevant ideas found in game engines. It also provides DCC (digital content creation) scene assembly capabilities typically found in big box 3D modelling, rendering and animation software. Those features are combined with a side-order of 3d scaning sector focused options you would normally need to access inside a dedicated SfM (Structure from Motion) based 3D recontruction program.
+Lightfielder feels like a mix of the most relevant ideas found in game engines, and the DCC (digital content creation) scene assembly capabilities typically found in big box 3D modelling, rendering and animation software. Those features are combined with a side-order of 3d scaning sector focused options you would normally need to access inside a dedicated SfM (Structure from Motion) based 3D reconstruction program.
 
 Viewport v1.0 beta is a [Swift language](https://www.swift.org/) based application that relies on [Metal API](https://developer.apple.com/metal/) based GPU acceleration to power the interactive session. The Viewport development effort was bootstrapped using open-source LGPL licensed [Kartaverse](https://github.com/Kartaverse) technology.
 
@@ -49,4 +49,3 @@ There is a full undo/redo "history stack" system in the application that acts li
 	- [Rust Language](Compiling-Rust.md)
 - Tutorials
 	- TBD
-
