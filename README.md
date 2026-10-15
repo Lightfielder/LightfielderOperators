@@ -6,7 +6,7 @@ Created by: [Andrew Hazelden](mailto:andrew@andrewhazelden.com)
 
 ## Overview
 
-Ops is a [rust language](https://rust-lang.org/) based agentic interface to control and visualize distributed render tasks running on HPC systems. It is cross-platform compatible and works across Linux, Windows, and macOS.
+Lightfielder Ops uses a node-based interface to control and visualize distributed rendering and compute tasks running on HPC systems. A Vulkan API + Rust language port of Ops is underway. The software is cross-platform compatible and works across Linux, Windows, and macOS.
 
 You can also use a light-weight Swift UI build of the Lightfielder Ops user interface. This version is optimized for the Apple Silicon (ARM64) architecture running on iOS, VisionOS, and macOS Catalyst gear. This edition of Ops acts as a thin client to interface with the larger Ops ecosystem of tools. It's great to have when you are on the go, working remotely on-set, or are simply doing a project far away from your regular home, office, school, studio, or data center location.
 
