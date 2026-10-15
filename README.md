@@ -8,9 +8,9 @@ Created by: [Andrew Hazelden](mailto:andrew@andrewhazelden.com)
 
 Lightfielder Ops uses a node-based interface to control and visualize distributed rendering and compute tasks running on HPC systems. A Vulkan API + Rust language port of Ops is underway. The software is cross-platform compatible and works across Linux, Windows, and macOS.
 
-You can also use a light-weight Swift UI build of the Lightfielder Ops user interface. This version is optimized for the Apple Silicon (ARM64) architecture running on iOS, VisionOS, and macOS Catalyst gear. This edition of Ops acts as a thin client to interface with the larger Ops ecosystem of tools. It's great to have when you are on the go, working remotely on-set, or are simply doing a project far away from your regular home, office, school, studio, or data center location.
-
 Ops is the secret-sauce that helps takes the pain out of data heavy workflows like volumetric video production. You can generate rapid onset previews of your volumetric assets as fully trained models, transcode media to meet delivery requirements, and automate away the drudgery of tasks you do regularly.
+
+A light-weight Swift UI build of the Lightfielder Ops user interface exists. This version is optimized for the Apple Silicon (ARM64) architecture running on iOS, VisionOS, and macOS Catalyst gear. This edition of Ops acts as a thin client to interface with the larger Ops ecosystem of tools. It's great to have when you are on the go, working remotely on-set, or are simply doing a project far away from your regular home, office, school, studio, or data center location.
 
 The Ops development effort was bootstrapped using open-source LGPL licensed [Kartaverse](https://github.com/Kartaverse) technology. The node-graph in Ops acts as the “standalone app” based continuation of the [Vonk Ultra](https://github.com/Kartaverse/VonkUltra) data nodes project. Ops was built specifically to interface with the LGPL licensed “[Lightfielder for DaVinci Resolve](https://github.com/Lightfielder/Lightfielder-DaVinci-Resolve/)” multi-view video editing and color grading pipeline tools.
 
