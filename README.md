@@ -96,10 +96,8 @@ Here is a super exciting OGraf based 3D camera engine video demo. The approach p
 [![Watch the video](https://img.youtube.com/vi/GBoWOP9oB9w/maxresdefault.jpg)](https://www.youtube.com/watch?v=GBoWOP9oB9w)
 (Click to play the Youtube Video)
 
-This OGraf solution is able to provide volumetric video editors with access to a unique title design system, that runs interactively on the Edit, Color, Fusion, and Deliver pages in Resolve.
+This OGraf solution is able to provide volumetric video editors with access to a unique title design system, that runs interactively on the Edit, Color, Fusion, and Deliver pages in Resolve. You can now access a flexible 2D, 3D PBR, or 3D vector curve based graphics generator that has its own 3D workspace. With a bit of scripting help, the OGraf module is capable of pulling all of the camera settings from an SfM based volumetric video camera array. 
 
-You can now access a flexible 2D, 3D PBR, or 3D vector curve based graphics generator that has its own 3D workspace. With a bit of scripting help, the OGraf module is capable of pulling all of the camera settings from an SfM based volumetric video camera array. 
+As a rendering solution, there is finally an efficient way to unlock true view-dependent "Lightfield Title Graphics" technology via OGraf. What makes this concept so exciting is that it has the capacity to run on a stock Edit page session that has vertically stacked video tracks with Lightfielder for DaVinci Resolve Studio v21.
 
-As a rendering solution, there is finally an efficient way to unlock true view-dependent "Lightfield Title Graphics" technology via OGraf. What makes this concept so exciting is that it has the capacity to run on a stock Edit page session that has vertically stacked video tracks with Lightfielder for DaVinci Resolve Studio v21.1 
-
-Development is focused in October 2026 on getting the beta version of the OGraf title generator to run directly from the user supplied camera pose and camera filmback data that is controlled in the Inspector panel. The camera array data import support will include COLMAP (.txt) files, NVIDIA InstantNGP (.json), AgiSoft Metashape (.psx), Capturing Reality RealityScan (.xml), CSV Spreadsheets, and even a user supplied URL that points at a Google Sheets document. 
+Development is focused on getting the beta version of the OGraf title generator to run directly from the user supplied camera pose and camera filmback data that is controlled in the Inspector panel. The camera array data import support will include COLMAP (.txt) files, NVIDIA InstantNGP (.json), AgiSoft Metashape (.psx), Capturing Reality RealityScan (.xml), CSV Spreadsheets, and even a user supplied URL that points at a Google Sheets document. 
